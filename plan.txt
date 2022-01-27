@@ -1,0 +1,6 @@
+1. Приложение "License Manager"
+2. End-point "Read License" method:post input:requirements.txt output:json
+3. Create models for licenses
+4. Create functionality for getting library license
+5. Finishing point
+6. Create command "Read Licenses" that will mimic end-point
