@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'Licenses',
+    'Licenses.apps.LicenseConfig',
 ]
 
 MIDDLEWARE = [

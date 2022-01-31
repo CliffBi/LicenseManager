@@ -1,3 +1,8 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 
-# Create your views here.
+
+def testpip(request):
+    print('Кто-то зашёл на главную!')
+    return HttpResponse('Привет!')
+

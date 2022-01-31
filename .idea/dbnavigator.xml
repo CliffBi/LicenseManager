@@ -17,7 +17,7 @@
       <scope value="GLOBAL" />
       <destination value="FILE" />
       <format value="EXCEL" />
-      <charset value="windows-1251" />
+      <charset value="UTF-8" />
     </export-instructions>
   </component>
   <component name="DBNavigator.Project.DatabaseBrowserManager">
@@ -25,13 +25,13 @@
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
     <loaded-nodes>
-      <connection connection-id="2ad1372a-c032-4fd0-b982-d08c2c6d15ec">
+      <connection connection-id="a3850ef0-c1bb-412b-b37f-26881f0f5db0">
         <schema name="main" object-types="table, view, constraint, index, column, dataset trigger" />
       </connection>
     </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="2ad1372a-c032-4fd0-b982-d08c2c6d15ec">
+    <connection id="a3850ef0-c1bb-412b-b37f-26881f0f5db0">
       <console name="Connection" type="STANDARD" schema="main" session="Main" />
     </connection>
   </component>
@@ -39,7 +39,7 @@
     <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
-    <connection id="2ad1372a-c032-4fd0-b982-d08c2c6d15ec" />
+    <connection id="a3850ef0-c1bb-412b-b37f-26881f0f5db0" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
@@ -70,7 +70,7 @@
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="2ad1372a-c032-4fd0-b982-d08c2c6d15ec" active="true">
+      <connection id="a3850ef0-c1bb-412b-b37f-26881f0f5db0" active="true">
         <database>
           <name value="Connection" />
           <description value="" />
@@ -85,7 +85,7 @@
           <port value="" />
           <database value="" />
           <files>
-            <file path="C:\Users\dimas\Desktop\License Manager\MAIN\db1.sqlite3" schema="main" />
+            <file path="$PROJECT_DIR$/MAIN/db1.sqlite3" schema="main" />
           </files>
           <type value="NONE" />
           <user value="" />
