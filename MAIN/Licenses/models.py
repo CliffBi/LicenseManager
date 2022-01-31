@@ -1,11 +1,12 @@
 from django.db import models
 from django.urls import reverse
+import uuid
 
 
 class Licenses(models.Model):
     license_name = models.CharField(max_length=30)
     copyright_holder = models.CharField(max_length=100)
-    guarantees = models.BooleanField(help_text='Is the license guaranteed?')
+    guarantee = models.BooleanField(help_text='Is the license guaranteed?')
     DFSG_compatible = models.BooleanField(help_text='')
     FSF_approved = models.BooleanField(help_text='')
     OSI_approved = models.BooleanField(help_text='Is the OSI license approved?')
@@ -16,8 +17,10 @@ class Licenses(models.Model):
     class Meta:
         ordering = ['license_name']
 
+    # def get_absolute_url(self):
+    #     return reverse('Licence-detail', args=[str(self.id)])
+
     def __str__(self):
         return self.license_name
 
-    def get_absolute_url(self):
-        return reverse('Licence-detail', args=[str(self.license_name)])
+
