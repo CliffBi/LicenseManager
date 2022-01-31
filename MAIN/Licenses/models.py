@@ -4,7 +4,7 @@ from django.urls import reverse
 
 class Licenses(models.Model):
     license_name = models.CharField(max_length=30)
-    # copyright_holder = models.CharField(max_length=100)
+    copyright_holder = models.CharField(max_length=100)
     guarantees = models.BooleanField(help_text='Is the license guaranteed?')
     DFSG_compatible = models.BooleanField(help_text='')
     FSF_approved = models.BooleanField(help_text='')
