@@ -1,9 +1,9 @@
 from django.urls import path
-from . import views
+from Licenses import views
 
 
 urlpatterns = [
-    path('helth_check/', views.health_check),
+    path('helth_check/', views.get_list_licenses),
     path('', views.index),
-    path('Licenses/', views.check_lic),
+    path('licenses/<id>/', views.check_lic),
 ]

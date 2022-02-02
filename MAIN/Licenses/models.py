@@ -5,7 +5,7 @@ import uuid
 
 class Licenses(models.Model):
     license_name = models.CharField(max_length=30)
-    copyright_holder = models.CharField(max_length=100)
+    # copyright_holder = models.CharField(max_length=100)
     guarantee = models.BooleanField(help_text='Is the license guaranteed?')
     DFSG_compatible = models.BooleanField(help_text='')
     FSF_approved = models.BooleanField(help_text='')
@@ -13,7 +13,7 @@ class Licenses(models.Model):
     GPL_compatible = models.BooleanField(help_text='Is it compatible with GPL?')
     copyleft = models.BooleanField(help_text='Is Copyleft a license?')
     different_license = models.BooleanField(help_text='Allows linking with code under a different license.')
-    active = models.BooleanField(help_text='')
+    active = models.BooleanField(help_text='Check')
 
 
     class Meta:
