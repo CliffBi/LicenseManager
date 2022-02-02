@@ -11,7 +11,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.RenameField(
-            model_name='licenses',
+            model_name='Licenses',
             old_name='linking_from_different_license',
             new_name='different_license',
         ),

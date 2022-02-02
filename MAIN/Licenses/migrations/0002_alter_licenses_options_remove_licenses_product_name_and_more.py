@@ -11,56 +11,56 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.AlterModelOptions(
-            name='licenses',
+            name='Licenses',
             options={'ordering': ['license_name']},
         ),
         migrations.RemoveField(
-            model_name='licenses',
+            model_name='Licenses',
             name='product_name',
         ),
         migrations.AddField(
-            model_name='licenses',
+            model_name='Licenses',
             name='DFSG_compatible',
             field=models.BooleanField(default=True, help_text='The Debian Free Software Guidelines (DFSG) is a set of guidelines that the Debian Project uses to determine whether a software license is a free software license, which in turn is used to determine whether a piece of software can be included in Debian.'),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='licenses',
+            model_name='Licenses',
             name='FSF_approved',
             field=models.BooleanField(default=True, help_text='Free software is computer software distributed under terms that allow users to run the software for any purpose as well as to study, change, and distribute it and any adapted versions.'),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='licenses',
+            model_name='Licenses',
             name='GPL_approved',
             field=models.BooleanField(default=True, help_text='Is it compatible with GPL?'),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='licenses',
+            model_name='Licenses',
             name='OSI_approved',
             field=models.BooleanField(default=True, help_text='Is the OSI license approved?'),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='licenses',
+            model_name='Licenses',
             name='copyleft',
             field=models.BooleanField(default=True, help_text='Is Copyleft a license?'),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='licenses',
+            model_name='Licenses',
             name='linking_from_different_license',
             field=models.BooleanField(default=True, help_text='Allows linking with code under a different license.'),
             preserve_default=False,
         ),
         migrations.AlterField(
-            model_name='licenses',
+            model_name='Licenses',
             name='copyright_holder',
             field=models.CharField(max_length=100),
         ),
         migrations.AlterField(
-            model_name='licenses',
+            model_name='Licenses',
             name='guarantees',
             field=models.BooleanField(help_text='Is the license guaranteed?'),
         ),

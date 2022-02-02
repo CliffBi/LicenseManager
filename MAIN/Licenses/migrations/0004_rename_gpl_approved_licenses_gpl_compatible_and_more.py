@@ -11,17 +11,17 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.RenameField(
-            model_name='licenses',
+            model_name='Licenses',
             old_name='GPL_approved',
             new_name='GPL_compatible',
         ),
         migrations.AlterField(
-            model_name='licenses',
+            model_name='Licenses',
             name='DFSG_compatible',
             field=models.BooleanField(),
         ),
         migrations.AlterField(
-            model_name='licenses',
+            model_name='Licenses',
             name='FSF_approved',
             field=models.BooleanField(),
         ),
