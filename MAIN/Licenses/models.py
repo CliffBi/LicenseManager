@@ -13,7 +13,7 @@ class Licenses(models.Model):
     GPL_compatible = models.BooleanField(help_text='Is it compatible with GPL?')
     copyleft = models.BooleanField(help_text='Is Copyleft a license?')
     different_license = models.BooleanField(help_text='Allows linking with code under a different license.')
-    active = models.BooleanField(help_text='Check')
+    active = models.BooleanField(help_text='Check', default=True)
 
 
     class Meta:
@@ -24,5 +24,3 @@ class Licenses(models.Model):
 
     def __str__(self):
         return self.license_name
-
-
