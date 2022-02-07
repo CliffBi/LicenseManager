@@ -3,12 +3,44 @@ from django.views.decorators.csrf import csrf_exempt
 from django.forms.models import model_to_dict
 from Licenses.models import Licenses
 from django.core import serializers
-from rest_framework.decorators import api_view
+
+
+# licenses_serialize = ('license_name', 'guarantee', 'DFSG_compatible',
+#                           'FSF_approved', 'OSI_approved', 'GPL_compatible', 'copyleft',
+#                           'different_license', 'active')
+licenses_serializer = {
+    'license_name': 'name_license',
+    'guarantee': False,
+    'DFSG_compatible': False,
+    'FSF_approved': False,
+    'OSI_approved': False,
+    'GPL_compatible': False,
+    'copyleft': False,
+    'different_license': False,
+    'active': True
+}
+
+
+def serialize(license_serialize, data_dict, data_id):
+    output_dict = dict()
+    for name in license_serialize:
+        if name not in data_dict:
+            if data_id is None:          # for create_license
+                output_dict[name] = license_serialize[name]
+            else:                        # for update_license
+                license_object = Licenses.objects.get(id=data_id)
+                data = model_to_dict(license_object)
+                output_dict[name] = data[name]
+        else:
+            output_dict[name] = data_dict[name][0]
+    # if 'active' in data_dict:
+    #     output_dict['active'] = data_dict['active'][0]
+    print(output_dict)
+    return output_dict
 
 
 def index(request):
     num_books = serializers.serialize("json", Licenses.objects.all())
-
     return HttpResponse(num_books, content_type='application/json')
 
 
@@ -22,54 +54,48 @@ def get_list_licenses(request):
     return JsonResponse(data, safe=False)
 
 
-@csrf_exempt
-def check_lic(request, data_id):
-    if request.method == 'GET':
-        try:
-            lic_obj = Licenses.objects.get(id=data_id)
-        except Licenses.DoesNotExist as e:
-            print(type(e))
-            return HttpResponse('No Data', status=204)
+def get_license(request, data_id):
+    try:
+        license_object = Licenses.objects.get(id=data_id)
+    except Licenses.DoesNotExist as e:
+        print(type(e))
+        return HttpResponse('No Data', status=204)
 
-        data = model_to_dict(lic_obj)
-        return JsonResponse(data, safe=False)
-    elif request.method == 'POST':
-        data1 = Licenses.objects.get(id=2)
-        return HttpResponse(data1)
+    data = model_to_dict(license_object)
+    return JsonResponse(data, safe=False)
 
 
-@api_view(['POST'])
-@csrf_exempt
-def data_updater(request, data_id):
-    if request.method == 'POST':
-        try:
-            license_id = Licenses.objects.get(id=data_id)
-        except Licenses.DoesNotExist as e:
-            print(type(e))
-            return HttpResponse('No Data', status=204)
-        request_data = request.data['license_name']
-        license_id.license_name = request_data
-        license_id.save()
-        return HttpResponse('ok')
+def update_license(request, data_id):
+    try:
+        # license_id = Licenses.objects.get(id=data_id)
+        data = dict(request.POST)
+        a = serialize(licenses_serializer, data, data_id)
+    except Licenses.DoesNotExist as e:
+        print(type(e))
+        return HttpResponse('No Data', status=204)
+    Licenses.objects.filter(id=data_id).update(**a)
+    # request_data = request.POST['license_name']
+    # license_id.license_name = request_data
+    # license_id.save()
+    return HttpResponse('ok')
 
 
-def serialize(names_list, data_dict):
-    output_dict = dict()
-    for name in names_list:
-        output_dict[name] = data_dict[name][0]
-    print(output_dict)
-    return output_dict
+def delete_license(request, data_id):
+    try:
+        license_id = Licenses.objects.get(id=data_id)
+    except Licenses.DoesNotExist as e:
+        print(type(e))
+        return HttpResponse('No Data', status=204)
+    license_id.delete()
+    return HttpResponse('DEL')
 
 
 @csrf_exempt
-def data_create(request):
+def create_licenses(request):
     if request.method == 'POST':
         try:
             data = dict(request.POST)
-            names_list = ('license_name', 'guarantee', 'DFSG_compatible',
-                          'FSF_approved', 'OSI_approved', 'GPL_compatible', 'copyleft',
-                          'different_license', 'active')
-            a = serialize(names_list, data)
+            a = serialize(licenses_serializer, data, None)
         except KeyError as e:
             print(type(e))
             return HttpResponse('No Data', status=204)
@@ -78,13 +104,12 @@ def data_create(request):
 
 
 @csrf_exempt
-def data_delete(request, data_id):
-    if request.method == 'DELETE':
-        try:
-            license_id = Licenses.objects.get(id=data_id)
-            license_id.delete()
-        except Licenses.DoesNotExist as e:
-            print(type(e))
-            return HttpResponse('No Data', status=204)
-        return HttpResponse('DEL')
-
+def get_update_delete_license(request, data_id):
+    if request.method == 'GET':
+        return get_license(request, data_id)
+    elif request.method == 'POST':
+        return update_license(request, data_id)
+    elif request.method == 'DELETE':
+        return delete_license(request, data_id)
+    else:
+        return HttpResponse('Error')
