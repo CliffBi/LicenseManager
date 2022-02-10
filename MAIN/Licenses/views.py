@@ -9,15 +9,15 @@ from django.core import serializers
 #                           'FSF_approved', 'OSI_approved', 'GPL_compatible', 'copyleft',
 #                           'different_license', 'active')
 licenses_serializer = {
-    'license_name': 'name_license',
-    'guarantee': False,
-    'DFSG_compatible': False,
-    'FSF_approved': False,
-    'OSI_approved': False,
-    'GPL_compatible': False,
-    'copyleft': False,
-    'different_license': False,
-    'active': True
+    'license_name': {'required': True, 'read only': False},
+    'guarantee': {'required': False, 'read only': False},
+    'DFSG_compatible': {'required': True, 'read only': False},
+    'FSF_approved': {'required': True, 'read only': False},
+    'OSI_approved': {'required': True, 'read only': False},
+    'GPL_compatible': {'required': True, 'read only': False},
+    'copyleft': {'required': True, 'read only': False},
+    'different_license': {'required': False, 'read only': False},
+    'active': {'required': False, 'read only': True}
 }
 
 
@@ -25,16 +25,14 @@ def serialize(license_serialize, data_dict, data_id):
     output_dict = dict()
     for name in license_serialize:
         if name not in data_dict:
-            if data_id is None:          # for create_license
-                output_dict[name] = license_serialize[name]
-            else:                        # for update_license
-                license_object = Licenses.objects.get(id=data_id)
-                data = model_to_dict(license_object)
-                output_dict[name] = data[name]
+            if (not data_id) and license_serialize[name]['required']:          # for create_license
+                raise Exception(f'No field {name=}')
+            else:                                                              # for update_license
+                pass
+        elif license_serialize[name]['read only']:
+            continue
         else:
             output_dict[name] = data_dict[name][0]
-    # if 'active' in data_dict:
-    #     output_dict['active'] = data_dict['active'][0]
     print(output_dict)
     return output_dict
 
@@ -86,7 +84,9 @@ def delete_license(request, data_id):
     except Licenses.DoesNotExist as e:
         print(type(e))
         return HttpResponse('No Data', status=204)
-    license_id.delete()
+    # license_id.delete()
+    license_id.active = False
+    license_id.save()
     return HttpResponse('DEL')
 
 
@@ -99,8 +99,11 @@ def create_licenses(request):
         except KeyError as e:
             print(type(e))
             return HttpResponse('No Data', status=204)
-        # Licenses.objects.create(**a)
-        return HttpResponse('ok')
+        if a is None:
+            return HttpResponse('More info')
+        else:
+            Licenses.objects.create(**a)
+            return HttpResponse('ok')
 
 
 @csrf_exempt
