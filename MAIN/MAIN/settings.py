@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'Licenses.apps.LicenseConfig',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [

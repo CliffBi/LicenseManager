@@ -3,6 +3,9 @@ from django.views.decorators.csrf import csrf_exempt
 from django.forms.models import model_to_dict
 from Licenses.models import Licenses
 from django.core import serializers
+from rest_framework import generics
+from rest_framework.response import Response
+from Licenses.serializer import LicenseSerializer
 
 
 # licenses_serialize = ('license_name', 'guarantee', 'DFSG_compatible',
@@ -116,3 +119,8 @@ def get_update_delete_license(request, data_id):
         return delete_license(request, data_id)
     else:
         return HttpResponse('Error')
+
+
+class CreateLicense(generics.ListCreateAPIView):
+    queryset = Licenses.objects.all()
+    serializer_class = LicenseSerializer
