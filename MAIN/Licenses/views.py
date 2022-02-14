@@ -3,14 +3,11 @@ from django.views.decorators.csrf import csrf_exempt
 from django.forms.models import model_to_dict
 from Licenses.models import Licenses
 from django.core import serializers
-from rest_framework import generics
+from rest_framework import generics, viewsets
 from rest_framework.response import Response
 from Licenses.serializer import LicenseSerializer
 
 
-# licenses_serialize = ('license_name', 'guarantee', 'DFSG_compatible',
-#                           'FSF_approved', 'OSI_approved', 'GPL_compatible', 'copyleft',
-#                           'different_license', 'active')
 licenses_serializer = {
     'license_name': {'required': True, 'read only': False},
     'guarantee': {'required': False, 'read only': False},
@@ -122,5 +119,15 @@ def get_update_delete_license(request, data_id):
 
 
 class CreateLicense(generics.ListCreateAPIView):
+    queryset = Licenses.objects.all()
+    serializer_class = LicenseSerializer
+
+
+# class GetLicense(generics.RetrieveAPIView):
+#     queryset = Licenses.objects.all()
+#     serializer_class = LicenseSerializer
+
+
+class GetUpdateDeleteLicense(generics.RetrieveUpdateDestroyAPIView):
     queryset = Licenses.objects.all()
     serializer_class = LicenseSerializer
