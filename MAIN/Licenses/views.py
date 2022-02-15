@@ -5,6 +5,7 @@ from django.core import serializers
 from rest_framework import generics, viewsets
 from rest_framework.response import Response
 from Licenses.serializer import LicenseSerializer
+from django.shortcuts import render
 
 
 class GetCreateUpdateDelete:
@@ -36,8 +37,23 @@ class GetCreateUpdateDelete:
         return output_dict
 
     def index(request):
-        num_books = serializers.serialize("json", Licenses.objects.all())
-        return HttpResponse(num_books, content_type='application/json')
+        # num_books = serializers.serialize("json", Licenses.objects.all())
+        # a = HttpResponse(num_books, content_type='application/json')
+        #
+        data = [model_to_dict(obj) for obj in Licenses.objects.all()]
+        # return JsonResponse(data, safe=False)
+        return render (request, 'index.html',
+                       context={'id':data[0]['id'],
+                                'license_name':data[0]['license_name'],
+                                'guarantee':data[0]['guarantee'],
+                                'DFSG_compatible':data[0]['DFSG_compatible'],
+                                'FSF_approved':data[0]['FSF_approved'],
+                                'OSI_approved':data[0]['OSI_approved'],
+                                'GPL_compatible':data[0]['GPL_compatible'],
+                                'copyleft':data[0]['copyleft'],
+                                'different_license':data[0]['different_license'],
+                                'active':data[0]['active'],
+                                })
 
     def get_list_licenses(request):
         # data = list(Licenses.objects.values())
@@ -56,7 +72,19 @@ class GetCreateUpdateDelete:
             return HttpResponse('No Data', status=204)
 
         data = model_to_dict(license_object)
-        return JsonResponse(data, safe=False)
+        # return JsonResponse(data, safe=False)
+        return render(request, 'get_license.html',
+                      context={'id': data['id'],
+                               'license_name': data['license_name'],
+                               'guarantee': data['guarantee'],
+                               'DFSG_compatible': data['DFSG_compatible'],
+                               'FSF_approved': data['FSF_approved'],
+                               'OSI_approved': data['OSI_approved'],
+                               'GPL_compatible': data['GPL_compatible'],
+                               'copyleft': data['copyleft'],
+                               'different_license': data['different_license'],
+                               'active': data['active'],
+                               })
 
     def update_license(request, data_id, self=None):
         try:

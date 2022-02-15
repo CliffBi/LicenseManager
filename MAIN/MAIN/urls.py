@@ -25,4 +25,7 @@ urlpatterns = [
     path('', RedirectView.as_view(url='', permanent=True)),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
+urlpatterns += [
+    path('Licenses/', include('Licenses.urls')),
+]
 
