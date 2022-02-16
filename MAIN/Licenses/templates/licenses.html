@@ -1,0 +1,53 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Local License</h1>
+  <p>License:</p>
+ {% for i in licenses_data %}
+        <ul>
+        <li><strong class="li1">ID:</strong> {{ i.id}}</li>
+        <li><strong>Licensename:</strong> {{ i.license_name }}</li>
+        <li><strong>Guarantee:</strong> {% if i.guarantee == True %}
+            <b>{{ i.guarantee }}</b>
+            {% else %}
+            {{ i.guarantee }}
+            {% endif %}</li>
+        <li><strong>DFSG compatible:</strong> {% if i.DFSG_compatible == True %}
+            <b>{{ i.DFSG_compatible }}</b>
+            {% else %}
+            {{ i.DFSG_compatible }}
+            {% endif %}</li>
+        <li><strong>FSF approved:</strong> {% if i.FSF_approved == True %}
+            <b>{{ i.FSF_approved }}</b>
+            {% else %}
+            {{ i.FSF_approved }}
+            {% endif %}</li>
+        <li><strong>OSI approved:</strong> {% if i.OSI_approved == True %}
+            <b>{{ i.OSI_approved }}</b>
+            {% else %}
+            {{ i.OSI_approved }}
+            {% endif %}</li>
+        <li><strong>GPL compatible:</strong> {% if i.GPL_compatible == True %}
+            <b>{{ i.GPL_compatible }}</b>
+            {% else %}
+            {{ i.GPL_compatible }}
+            {% endif %}</li>
+        <li><strong>Copyleft:</strong> {% if i.copyleft == True %}
+            <b>{{ i.copyleft }}</b>
+            {% else %}
+            {{ i.copyleft }}
+            {% endif %}</li>
+        <li><strong>Different license:</strong> {% if i.different_license == True %}
+            <b>{{ i.different_license }}</b>
+            {% else %}
+            {{ i.different_license }}
+            {% endif %}</li>
+        <li><strong>Active:</strong> {% if i.active == True %}
+            <b>{{ i.active }}</b>
+            {% else %}
+            {{ i.active }}
+            {% endif %}</li>
+
+        </ul>
+ {% endfor %}
+{% endblock %}
