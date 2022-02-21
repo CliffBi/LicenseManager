@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Local License</h1>
+  <p>License:</p>
+ {% for license in licenses_data %}
+    {% for field in license %}
+        <ul>
+        <li><strong class="strong1">{{ field.name }}:</strong> {% if field.value == True %}
+            <b>{{ field.value }}</b>
+            {% else %}
+            {{ field.value }}
+            {% endif %}</li>
+        </ul>
+    {% endfor %}
+<li></li>
+ {% endfor %}
+{% endblock %}
