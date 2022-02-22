@@ -1,0 +1,530 @@
+[
+  {
+    "model": "Licenses.licenses",
+    "pk": 1,
+    "fields":
+    {
+      "license_name": "MIT License",
+      "guarantee": null,
+      "DFSG_compatible": true,
+      "FSF_approved": true,
+      "OSI_approved": true,
+      "GPL_compatible": true,
+      "copyleft": false,
+      "different_license": true,
+      "active": true
+    }
+  },
+  {
+    "model": "Licenses.licenses",
+    "pk": 2,
+    "fields":
+    {
+      "license_name": "BSD License",
+      "guarantee": null,
+      "DFSG_compatible": true,
+      "FSF_approved": true,
+      "OSI_approved": true,
+      "GPL_compatible": true,
+      "copyleft": false,
+      "different_license": true,
+      "active": true
+    }
+  },
+  {
+    "model": "Licenses.licenses",
+    "pk": 3,
+    "fields":
+    {
+      "license_name": "Apache Software License",
+      "guarantee": null,
+      "DFSG_compatible": true,
+      "FSF_approved": true,
+      "OSI_approved": true,
+      "GPL_compatible": true,
+      "copyleft": false,
+      "different_license": true,
+      "active": true
+    }
+  },
+  {
+    "model": "Licenses.licenses",
+    "pk": 4,
+    "fields":
+    {
+      "license_name": "GPL-3.0 License",
+      "guarantee": null,
+      "DFSG_compatible": true,
+      "FSF_approved": true,
+      "OSI_approved": true,
+      "GPL_compatible": true,
+      "copyleft": true,
+      "different_license": false,
+      "active": true
+    }
+  },
+  {
+    "model": "Licenses.licenses",
+    "pk": 5,
+    "fields":
+    {
+      "license_name": "BSL-1.0 License",
+      "guarantee": null,
+      "DFSG_compatible": true,
+      "FSF_approved": true,
+      "OSI_approved": true,
+      "GPL_compatible": true,
+      "copyleft": false,
+      "different_license": true,
+      "active": true
+    }
+  },
+  {
+    "model": "Licenses.licenses",
+    "pk": 6,
+    "fields":
+    {
+      "license_name": "LGPL-3.0 License",
+      "guarantee": null,
+      "DFSG_compatible": true,
+      "FSF_approved": true,
+      "OSI_approved": true,
+      "GPL_compatible": true,
+      "copyleft": true,
+      "different_license": true,
+      "active": true
+    }
+  },
+  {
+    "model": "Licenses.licenses",
+    "pk": 7,
+    "fields":
+    {
+      "license_name": "MPL-2.0",
+      "guarantee": null,
+      "DFSG_compatible": true,
+      "FSF_approved": true,
+      "OSI_approved": true,
+      "GPL_compatible": true,
+      "copyleft": true,
+      "different_license": true,
+      "active": true
+    }
+  },
+  {
+    "model": "Licenses.licenses",
+    "pk": 8,
+    "fields":
+    {
+      "license_name": "Ms-PL",
+      "guarantee": null,
+      "DFSG_compatible": null,
+      "FSF_approved": true,
+      "OSI_approved": true,
+      "GPL_compatible": false,
+      "copyleft": true,
+      "different_license": true,
+      "active": true
+    }
+  },
+  {
+    "model": "Licenses.licenses",
+    "pk": 9,
+    "fields":
+    {
+      "license_name": "Ms-RL",
+      "guarantee": null,
+      "DFSG_compatible": null,
+      "FSF_approved": true,
+      "OSI_approved": true,
+      "GPL_compatible": false,
+      "copyleft": true,
+      "different_license": true,
+      "active": true
+    }
+  },
+  {
+    "model": "Licenses.licenses",
+    "pk": 10,
+    "fields":
+    {
+      "license_name": "EPL-1.0",
+      "guarantee": null,
+      "DFSG_compatible": true,
+      "FSF_approved": true,
+      "OSI_approved": true,
+      "GPL_compatible": null,
+      "copyleft": true,
+      "different_license": true,
+      "active": true
+    }
+  },
+  {
+    "model": "Licenses.licenses",
+    "pk": 11,
+    "fields":
+    {
+      "license_name": "ISC License",
+      "guarantee": null,
+      "DFSG_compatible": true,
+      "FSF_approved": true,
+      "OSI_approved": true,
+      "GPL_compatible": true,
+      "copyleft": false,
+      "different_license": true,
+      "active": true
+    }
+  },
+  {
+    "model": "Licenses.licenses",
+    "pk": 12,
+    "fields":
+    {
+      "license_name": "CDDL-1.0",
+      "guarantee": null,
+      "DFSG_compatible": null,
+      "FSF_approved": true,
+      "OSI_approved": true,
+      "GPL_compatible": false,
+      "copyleft": true,
+      "different_license": true,
+      "active": true
+    }
+  },
+  {
+    "model": "Licenses.licenses",
+    "pk": 13,
+    "fields":
+    {
+      "license_name": "Artistic-1.0",
+      "guarantee": null,
+      "DFSG_compatible": true,
+      "FSF_approved": false,
+      "OSI_approved": true,
+      "GPL_compatible": false,
+      "copyleft": false,
+      "different_license": true,
+      "active": true
+    }
+  },
+  {
+    "model": "Licenses.licenses",
+    "pk": 14,
+    "fields":
+    {
+      "license_name": "Artistic-2.0",
+      "guarantee": null,
+      "DFSG_compatible": true,
+      "FSF_approved": true,
+      "OSI_approved": true,
+      "GPL_compatible": true,
+      "copyleft": false,
+      "different_license": true,
+      "active": true
+    }
+  },
+  {
+    "model": "Licenses.licenses",
+    "pk": 15,
+    "fields":
+    {
+      "license_name": "AFL",
+      "guarantee": null,
+      "DFSG_compatible": null,
+      "FSF_approved": true,
+      "OSI_approved": true,
+      "GPL_compatible": false,
+      "copyleft": false,
+      "different_license": true,
+      "active": true
+    }
+  },
+  {
+    "model": "Licenses.licenses",
+    "pk": 16,
+    "fields":
+    {
+      "license_name": "Fair",
+      "guarantee": null,
+      "DFSG_compatible": null,
+      "FSF_approved": true,
+      "OSI_approved": true,
+      "GPL_compatible": true,
+      "copyleft": false,
+      "different_license": true,
+      "active": true
+    }
+  },
+  {
+    "model": "Licenses.licenses",
+    "pk": 17,
+    "fields":
+    {
+      "license_name": "APSL",
+      "guarantee": null,
+      "DFSG_compatible": false,
+      "FSF_approved": true,
+      "OSI_approved": true,
+      "GPL_compatible": false,
+      "copyleft": true,
+      "different_license": true,
+      "active": true
+    }
+  },
+  {
+    "model": "Licenses.licenses",
+    "pk": 18,
+    "fields":
+    {
+      "license_name": "CPAL-1.0",
+      "guarantee": null,
+      "DFSG_compatible": false,
+      "FSF_approved": true,
+      "OSI_approved": true,
+      "GPL_compatible": false,
+      "copyleft": true,
+      "different_license": true,
+      "active": true
+    }
+  },
+  {
+    "model": "Licenses.licenses",
+    "pk": 19,
+    "fields":
+    {
+      "license_name": "IPL",
+      "guarantee": null,
+      "DFSG_compatible": true,
+      "FSF_approved": true,
+      "OSI_approved": true,
+      "GPL_compatible": false,
+      "copyleft": true,
+      "different_license": true,
+      "active": true
+    }
+  },
+  {
+    "model": "Licenses.licenses",
+    "pk": 20,
+    "fields":
+    {
+      "license_name": "RPL-1.5",
+      "guarantee": null,
+      "DFSG_compatible": false,
+      "FSF_approved": false,
+      "OSI_approved": true,
+      "GPL_compatible": false,
+      "copyleft": true,
+      "different_license": null,
+      "active": true
+    }
+  },
+  {
+    "model": "Licenses.licenses",
+    "pk": 21,
+    "fields":
+    {
+      "license_name": "QPL-1.0",
+      "guarantee": null,
+      "DFSG_compatible": false,
+      "FSF_approved": true,
+      "OSI_approved": true,
+      "GPL_compatible": false,
+      "copyleft": false,
+      "different_license": null,
+      "active": true
+    }
+  },
+  {
+    "model": "Licenses.licenses",
+    "pk": 22,
+    "fields":
+    {
+      "license_name": "HPND",
+      "guarantee": null,
+      "DFSG_compatible": null,
+      "FSF_approved": true,
+      "OSI_approved": true,
+      "GPL_compatible": true,
+      "copyleft": false,
+      "different_license": true,
+      "active": true
+    }
+  },
+  {
+    "model": "Licenses.licenses",
+    "pk": 23,
+    "fields":
+    {
+      "license_name": "NASA-1.3",
+      "guarantee": null,
+      "DFSG_compatible": false,
+      "FSF_approved": false,
+      "OSI_approved": true,
+      "GPL_compatible": false,
+      "copyleft": false,
+      "different_license": true,
+      "active": true
+    }
+  },
+  {
+    "model": "Licenses.licenses",
+    "pk": 24,
+    "fields":
+    {
+      "license_name": "ECL-2.0",
+      "guarantee": null,
+      "DFSG_compatible": null,
+      "FSF_approved": true,
+      "OSI_approved": true,
+      "GPL_compatible": true,
+      "copyleft": false,
+      "different_license": true,
+      "active": true
+    }
+  },
+  {
+    "model": "Licenses.licenses",
+    "pk": 25,
+    "fields":
+    {
+      "license_name": "APL-1.0",
+      "guarantee": null,
+      "DFSG_compatible": null,
+      "FSF_approved": null,
+      "OSI_approved": true,
+      "GPL_compatible": null,
+      "copyleft": true,
+      "different_license": null,
+      "active": true
+    }
+  },
+  {
+    "model": "Licenses.licenses",
+    "pk": 26,
+    "fields":
+    {
+      "license_name": "EFL-2.0",
+      "guarantee": null,
+      "DFSG_compatible": true,
+      "FSF_approved": true,
+      "OSI_approved": true,
+      "GPL_compatible": true,
+      "copyleft": false,
+      "different_license": true,
+      "active": true
+    }
+  },
+  {
+    "model": "Licenses.licenses",
+    "pk": 27,
+    "fields":
+    {
+      "license_name": "LPL-1.02",
+      "guarantee": null,
+      "DFSG_compatible": true,
+      "FSF_approved": true,
+      "OSI_approved": true,
+      "GPL_compatible": false,
+      "copyleft": false,
+      "different_license": null,
+      "active": true
+    }
+  },
+  {
+    "model": "Licenses.licenses",
+    "pk": 28,
+    "fields":
+    {
+      "license_name": "SPL-1.0",
+      "guarantee": null,
+      "DFSG_compatible": null,
+      "FSF_approved": true,
+      "OSI_approved": true,
+      "GPL_compatible": false,
+      "copyleft": null,
+      "different_license": null,
+      "active": true
+    }
+  },
+  {
+    "model": "Licenses.licenses",
+    "pk": 29,
+    "fields":
+    {
+      "license_name": "RPSL-1.0",
+      "guarantee": null,
+      "DFSG_compatible": false,
+      "FSF_approved": true,
+      "OSI_approved": true,
+      "GPL_compatible": false,
+      "copyleft": true,
+      "different_license": true,
+      "active": true
+    }
+  },
+  {
+    "model": "Licenses.licenses",
+    "pk": 30,
+    "fields":
+    {
+      "license_name": "MirOS",
+      "guarantee": null,
+      "DFSG_compatible": true,
+      "FSF_approved": true,
+      "OSI_approved": true,
+      "GPL_compatible": true,
+      "copyleft": false,
+      "different_license": true,
+      "active": true
+    }
+  },
+  {
+    "model": "Licenses.licenses",
+    "pk": 31,
+    "fields":
+    {
+      "license_name": "Watcom-1.0",
+      "guarantee": null,
+      "DFSG_compatible": false,
+      "FSF_approved": false,
+      "OSI_approved": true,
+      "GPL_compatible": false,
+      "copyleft": true,
+      "different_license": null,
+      "active": true
+    }
+  },
+  {
+    "model": "Licenses.licenses",
+    "pk": 32,
+    "fields":
+    {
+      "license_name": "PHP License 3.0.1",
+      "guarantee": null,
+      "DFSG_compatible": false,
+      "FSF_approved": true,
+      "OSI_approved": true,
+      "GPL_compatible": false,
+      "copyleft": false,
+      "different_license": null,
+      "active": true
+    }
+  },
+  {
+    "model": "Licenses.licenses",
+    "pk": 33,
+    "fields":
+    {
+      "license_name": "SISSL-1.2",
+      "guarantee": null,
+      "DFSG_compatible": null,
+      "FSF_approved": true,
+      "OSI_approved": true,
+      "GPL_compatible": false,
+      "copyleft": null,
+      "different_license": null,
+      "active": true
+    }
+  }
+]
