@@ -1,10 +1,14 @@
 [
   {
     "Count": 1,
-    "License": "BSD License"
+    "License": "Apache Software License"
   },
   {
     "Count": 1,
+    "License": "BSD License"
+  },
+  {
+    "Count": 2,
     "License": "MIT License"
   }
 ]

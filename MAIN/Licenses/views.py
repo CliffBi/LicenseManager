@@ -2,6 +2,7 @@ from django.http import HttpResponse, JsonResponse
 from django.forms.models import model_to_dict
 from Licenses.models import Licenses
 from django.shortcuts import render
+from requirements_analysis import requirements_analyser
 
 licenses_serializer = {
     'license_name': {'required': True, 'read only': False},
@@ -42,10 +43,9 @@ def index(request):
     # from pprint import pprint
     # pprint(data, indent=4)
 
-    dictionary_processing(data)
-
+    end_list = dictionary_processing(data)
     return render(request, 'licenses.html',
-                  context={'licenses_data': data})
+                  context={'licenses_data': end_list})
 
 
 def dictionary_processing(list_of_dictionaries):
@@ -56,7 +56,7 @@ def dictionary_processing(list_of_dictionaries):
             end_dict = {'name': key, 'value': i[key]}
             list_dot.append(end_dict)
         end_list.append(list_dot)
-    return
+    return end_list
 
 
 def get_list_licenses(request):
@@ -143,3 +143,23 @@ def get_update_delete_license(request, data_id):
         return delete_license(request, data_id)
     else:
         return HttpResponse('Error')
+
+
+def license_comparison(request):
+    json_list = requirements_analyser('/home/clifford/PycharmProjects/License Manager/requirements.txt')
+    data = [model_to_dict(obj) for obj in Licenses.objects.all()]
+    final_licenses_list = []
+    not_in_db = []
+    for license_dict in json_list:
+        for license_data in data:
+            if license_dict['License'] in license_data['license_name']:
+                final_licenses_list.append(license_dict['License'])
+                if license_dict['License'] in not_in_db:
+                    not_in_db.remove(license_dict['License'])
+                break
+            elif license_dict['License'] not in final_licenses_list and license_dict['License'] not in not_in_db:
+                not_in_db.append(license_dict['License'])
+            else:
+                print('Nope')
+
+    return HttpResponse(f'{final_licenses_list=}\n{not_in_db=}')

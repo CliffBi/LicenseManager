@@ -1,2 +1,5 @@
-django
+django~=4.0.1
 cfgv
+virtualenv
+liccheck
+djangorestframework~=3.13.1

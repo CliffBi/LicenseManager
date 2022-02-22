@@ -17,17 +17,5 @@ def requirements_analyser(requirements):
     return json_list
 
 
-def license_comparison():
-    json_list = requirements_analyser('requirements.txt')
-    for license_dict in json_list:
-        for name in license_dict:
-            if name == 'License':
-                print(license_dict[name])
-                if license_dict[name] in 'road':
-                    print(license_dict[name])
-                else:
-                    print('Nope')
-
-
 if __name__ == '__main__':
     print(requirements_analyser('requirements.txt'))
